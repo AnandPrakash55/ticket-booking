@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">Bhole Shankar</div>
+            <div class="right">
+                <ul>
+                    <li>Home</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <button id="loginBtn">Login</button>
+                <button id="signUpBtn">Sign up</button>
+            </div>
+        </nav>
+        <section>
+            <div class="content">
+                <h1>Your Safe Travel Journey is Our Goal</h1>
+                <p>Bhole Shankar Tour and Travel Provide you safe and good journey. Our Buses give you comfort thanks for choosing us.</p>
+                <button id="bookTicketBtn">Book Your Ticket</button>
+            </div>
+        </section>
+    </header>
+     <!-- Modal for Login -->
+     <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        </div>
+    <!-- Modal for Sign up -->
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form>
+                <label for="new-username">Username:</label>
+                <input type="text" id="new-username" name="new-username" required><br><br>
+                <label for="new-password">Password:</label>
+                <input type="password" id="new-password" name="new-password" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <div id="bookTicketModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book Your Ticket</h2>
+            <form id="ticketForm">
+                <label for="route">Select Route:</label>
+                <select id="route" name="route" required>
+                    <option value="Sasaram to Ranchi">Sasaram to Ranchi</option>
+                    <option value="Banaras to Ranchi">Banaras to Ranchi</option>
+                    <option value="Sasaram to Tata">Sasaram to Tata</option>
+                    <option value="Ranchi to Banaras">Ranchi to Banaras</option>
+                </select><br><br>
+
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required><br><br>
+
+                <label for="numTickets">Number of Tickets:</label>
+                <input type="number" id="numTickets" name="numTickets" min="1" max="10" required><br><br>
+
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+   
+    
+    <footer>
+        <div class="foot-panel1">
+            Bus Details
+        </div>
+        <div class="foot-panel2">
+            <ul>
+                <p>Top Bus Routes</p>
+                <li>Sasaram to Ranchi</li>
+                <li>Banaras to Ranchi</li>
+                <li>Sasaram to Tata</li>
+                <li>Ranchi to Banaras</li>
+            </ul>
+            <ul>
+                <p>Bus from Top Cities</p>
+                <li>Sasaram to Ranchi</li>
+                <li>Patna to Ranchi</li>
+                <li>Sasaram to Tata</li>
+                <li>Ranchi to Banaras</li>
+            </ul>
+            <ul>
+                <p>Quick lines</p>
+                <li>Sasaram to Sadokhar</li>
+                <li>Banaras to Sasaram</li>
+                <li>Patna to Sasaram</li>
+                <li>Ranchi to Tata</li>
+            </ul>
+        </div>
+        <div class="foot-panel3">
+            <div class="pages">
+                <a>Condition of Use</a>
+                <a>Privacy Notice</a>
+            </div>
+            <div class="copyright">
+                @5515-5515, Bhole Shankar.in, Inc or affiliates
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Get modal elements
+        var loginModal = document.getElementById("loginModal");
+        var signUpModal = document.getElementById("signUpModal");
+
+        // Get button elements
+        var loginBtn = document.getElementById("loginBtn");
+        var signUpBtn = document.getElementById("signUpBtn");
+
+        // Get close buttons for modals
+        var closeBtns = document.getElementsByClassName("close");
+
+        // When the user clicks the Login button, open the Login modal
+        loginBtn.onclick = function() {
+            loginModal.style.display = "block";
+        };
+
+        // When the user clicks the Sign Up button, open the Sign Up modal
+        signUpBtn.onclick = function() {
+            signUpModal.style.display = "block";
+        };
+
+        // Close modal when the user clicks on the close button (×)
+        for (let i = 0; i < closeBtns.length; i++) {
+            closeBtns[i].onclick = function() {
+                loginModal.style.display = "none";
+                signUpModal.style.display = "none";
+            };
+        }
+
+        // Close modal when the user clicks outside the modal content
+        window.onclick = function(event) {
+            if (event.target === loginModal) {
+                loginModal.style.display = "none";
+            }
+            if (event.target === signUpModal) {
+                signUpModal.style.display = "none";
+            }
+        };
+    </script>
+    <script>
+        // Get modal elements
+        var bookTicketModal = document.getElementById("bookTicketModal");
+
+        // Get button elements
+        var bookTicketBtn = document.getElementById("bookTicketBtn");
+
+        // Get close buttons for modal
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the "Book Your Ticket" button, open the booking modal
+        bookTicketBtn.onclick = function() {
+            bookTicketModal.style.display = "block";
+        };
+
+        // Close modal when the user clicks on the close button (×)
+        closeBtn.onclick = function() {
+            bookTicketModal.style.display = "none";
+        };
+
+        // Close modal when the user clicks outside the modal content
+        window.onclick = function(event) {
+            if (event.target === bookTicketModal) {
+                bookTicketModal.style.display = "none";
+            }
+        };
+
+        // Handling the form submission for booking the ticket
+        document.getElementById("ticketForm").onsubmit = function(event) {
+            event.preventDefault();
+            var route = document.getElementById("route").value;
+            var date = document.getElementById("date").value;
+            var numTickets = document.getElementById("numTickets").value;
+
+            alert("Ticket successfully booked!\n" + 
+                  "Route: " + route + "\n" + 
+                  "Date: " + date + "\n" + 
+                  "Number of Tickets: " + numTickets);
+
+            // After booking, close the modal
+            bookTicketModal.style.display = "none";
+        };
+    </script>
+
+    
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+       
+        
+    </style>
+    
+</body>
+</html>
